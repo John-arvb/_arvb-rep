@@ -41,6 +41,25 @@ import { SafeAreaView,
          barStyle="dark-content"
          backgroundColor="#F7F8FC"
         />
+
+        <ScrollView
+            contentContainerStyle={styles.container}
+            showsVerticalScrollIndicator={false}
+        >
+            {/* HEADER */}
+            <View style={styles.header}>
+                <View>
+                    <Text Style={styles.header}>
+                        MONDAY, SEPTEMBER 21
+                    </Text>
+
+                    <text style={styles.eyebrow}>
+                        Good Morning, Derio
+                    </text>
+                </View>
+                
+            </View>
+        </ScrollView>
       </SafeAreaView>
     );
  }
