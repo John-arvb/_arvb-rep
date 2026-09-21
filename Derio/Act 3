@@ -7,3 +7,14 @@ import { SafeAreaView,
         Pressable,
         StatusBar,
  } from 'react-native';
+
+ const stats = [
+    {   label: 'Total Points', 
+        value: '$24,680.00', 
+        change: '+$12.80'
+    },
+    {   label: 'Monthly Income',
+        value: '$2,056.00',
+        change: '+$120.00',
+    },
+ ];
