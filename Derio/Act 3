@@ -18,3 +18,29 @@ import { SafeAreaView,
         change: '+$120.00',
     },
  ];
+
+ const activities = [
+    {   title: 'Salary Deposit',
+        category: '$Income',
+        change: '+$1,000.00',
+        icon: '💰',
+        color : '#D9FBE8',
+    },
+    {   title: 'Withdrawal',
+        category: '$Expense',
+        change: '-$500.00',
+        icon: '💳',
+        color : '#FFE5E5',
+    }
+ ];
+
+ export default function App() {
+    return (
+      <SafeAreaView style={styles.safeArea}>
+        <StatusBar
+         barStyle="dark-content"
+         backgroundColor="#F7F8FC"
+        />
+      </SafeAreaView>
+    );
+ }
