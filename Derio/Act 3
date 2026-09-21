@@ -57,7 +57,42 @@ import { SafeAreaView,
                         Good Morning, Derio
                     </text>
                 </View>
-                
+
+                <Pressable style={styles.button}>
+                    <Text style={styles.buttonText}>Add Transaction</Text>
+                </Pressable>
+            </View>
+
+            {/*BALANCE STATS */}
+            <View style={styles.blanceStats}>
+                <View style={styles.blanceStatsRow}>
+                    <Text style={styles.blancelabel}>
+                        Total Points
+                        </Text>
+
+                        <View style={styles.statusPoint}>
+                            <View style={styles.StatusDot}></View>
+
+                            <text style={styles.statusText}>
+                                Active
+                            </text>
+                        </View>
+
+                        <text style={styles.balanceValue}>
+                            $24,680.00
+                        </text>
+
+                        <view style={styles.balancebottomRow}>
+                            </view>
+                                <text style={styles.cardCaption}>
+                                    This month you have earned
+                                </text>
+
+                                <text style={styles.cardChange}>
+                                    +$12.80 increase from last month
+                                </text>
+                                
+                </View>
             </View>
         </ScrollView>
       </SafeAreaView>
