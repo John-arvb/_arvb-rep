@@ -1,0 +1,9 @@
+import react from 'react';
+import { SafeAreaView,
+        View,
+        Text,
+        StyleSheet,
+        ScrollView,
+        Pressable,
+        StatusBar,
+ } from 'react-native';
