@@ -1,119 +1,178 @@
-import react from 'react';
-import { SafeAreaView,
-        View,
-        Text,
-        StyleSheet,
-        ScrollView,
-        Pressable,
-        StatusBar,
- } from 'react-native';
+import react from "react";
+import {
+  SafeAreaView,
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  Pressable,
+  StatusBar,
+} from "react-native";
 
- const stats = [
-    {   label: 'Total Points', 
-        value: '$24,680.00', 
-        change: '+$12.80'
-    },
-    {   label: 'Monthly Income',
-        value: '$2,056.00',
-        change: '+$120.00',
-    },
- ];
+const stats = [
+  { label: "Total Points", value: "$24,680.00", change: "+$12.80" },
+  { label: "Monthly Income", value: "$2,056.00", change: "+$120.00" },
+];
 
- const activities = [
-    {   title: 'Salary Deposit',
-        category: '$Income',
-        change: '+$1,000.00',
-        icon: '💰',
-        color : '#D9FBE8',
-    },
-    {   title: 'Withdrawal',
-        category: '$Expense',
-        change: '-$500.00',
-        icon: '💳',
-        color : '#FFE5E5',
-    }
- ];
+const activities = [
+  {
+    title: "Salary Deposit",
+    category: "$Income",
+    change: "+$1,000.00",
+    icon: "💰",
+    color: "#D9FBE8",
+  },
+  {
+    title: "Withdrawal",
+    category: "$Expense",
+    change: "-$500.00",
+    icon: "💳",
+    color: "#FFE5E5",
+  },
+];
 
- export default function App() {
-    return (
-      <SafeAreaView style={styles.safeArea}>
-        <StatusBar
-         barStyle="dark-content"
-         backgroundColor="#F7F8FC"
-        />
+export default function App() {
+  return (
+    <SafeAreaView style={styles.safeArea}>
+      <StatusBar barStyle="dark-content" backgroundColor="#F7F8FC" />
 
-        <ScrollView
-            contentContainerStyle={styles.container}
-            showsVerticalScrollIndicator={false}
-        >
-            {/* HEADER */}
-            <View style={styles.header}>
-                <View>
-                    <Text Style={styles.header}>
-                        MONDAY, SEPTEMBER 21
+      <ScrollView
+        contentContainerStyle={styles.container}
+        showsVerticalScrollIndicator={false}
+      >
+        {/* HEADER */}
+        <View style={styles.header}>
+          <View>
+            <Text Style={styles.header}>MONDAY, SEPTEMBER 21</Text>
+
+            <Text style={styles.eyebrow}>Good Morning, Derio</Text>
+          </View>
+
+          <Pressable style={styles.button}>
+            <Text style={styles.buttonText}>Add Transaction</Text>
+          </Pressable>
+        </View>
+
+        {/*BALANCE STATS */}
+        <View style={styles.blanceStats}>
+          <View style={styles.blanceStatsRow}>
+            <Text style={styles.blancelabel}>Total Points</Text>
+
+            <View style={styles.statusPoint}>
+              <View style={styles.StatusDot}></View>
+
+              <Text style={styles.statusText}>Active</Text>
+            </View>
+
+            <Text style={styles.balanceValue}>$24,680.00</Text>
+
+            <View style={styles.balancebottomRow}></View>
+            <Text style={styles.cardCaption}>This month you have earned</Text>
+
+            <Text style={styles.cardChange}>
+              +$12.80 increase from last month
+            </Text>
+            <View style={styles.balanceValue}>
+              <View>
+                <Text style={style.cardCaption}>
+                  This month you have earned
+                </Text>
+
+                <Text style={stlyes.cardChange}>
+                  12.8% increase from last month
+                </Text>
+              </View>
+            </View>
+
+            {/*OVERVIEW */}
+            <View style={syles.sectionHeader}>
+              <Text style={styles.sectionTItle}>Overview</Text>
+
+              <Pressable>
+                <Text style={styles.sectionHeader}>View Support</Text>
+              </Pressable>
+            </View>
+
+            <View styles={styles.statsRow}>
+              {stats.map((Stat) => (
+                <View style={styles.statsCard}>
+                  key={Stat.label}
+                  <Text style={styles.styles.statslabel}>{Stat.label}</Text>
+                  <Text style={styles.statsValue}>{Stat.value}</Text>
+                  <Text style={styles.statsChange}>
+                    {Stat.change} vs last month
+                  </Text>
+                </View>
+              ))}
+            </View>
+
+            {/*QUICK ACTIONS */}
+            <View style={styles.sectionHeader}>
+              <Text style={styles.sectionTitle}>Quick Actions</Text>
+            </View>
+
+            <View syles={styles.actionsRow}>
+              {[
+                { icon: "💰", label: "Deposit" },
+                { icon: "💳", label: "Withdraw" },
+                { icon: "📄", label: "Statement" },
+                { icon: "⚙️", label: "Settings" },
+              ].map((action) => (
+                <Pressable style={styles.actionCard} key={action.label}>
+                  <View style={styles.actionIcon}>
+                    <Text style={styles.actionIconText}>{action.icon}</Text>
+                  </View>
+                </Pressable>
+              ))}
+            </View>
+
+            {/*RECENT ACTIVITIES */}
+            <View styles={styles.sectionHeader}>
+              <Text styles={styles.sectionTitle}>Recent Activities</Text>
+
+              <Pressable>
+                <Text style={styles.linkText}>See All</Text>
+              </Pressable>
+            </View>
+
+            <View style={styles.activityCard}>
+              {Activities.map((actvitity, index) => (
+                <View
+                  style={[
+                    styles.activityRow,
+                    index !== activities.length - 1 && styles.activityDivider,
+                  ]}
+                  key={activity.title}
+                >
+                  <View
+                    style={[
+                      styles.activityIcon,
+                      { backgroundColor: activity.color },
+                    ]}
+                  >
+                    <Text style={styles.activityIconText}>{activity.icon}
+                    </Text>
+                  </View>
+
+                  <View style={styles.activityDetails}>
+                    <Text style={styles.activityTitle}>{activity.title}
                     </Text>
 
-                    <text style={styles.eyebrow}>
-                        Good Morning, Derio
-                    </text>
-                </View>
+                    <Text style={styles.actionCategory}>{activity.category}
+                    </Text>
+                  </View>
 
-                <Pressable style={styles.button}>
-                    <Text style={styles.buttonText}>Add Transaction</Text>
-                </Pressable>
+                  <Text style={[styles.activityChange, activity.change.startWith("+") && styles.activityChange,]}>
+                    {activity.change}
+                  </Text>                                                
+                </View>
+              ))} 
             </View>
 
-            {/*BALANCE STATS */}
-            <View style={styles.blanceStats}>
-                <View style={styles.blanceStatsRow}>
-                    <Text style={styles.blancelabel}>
-                        Total Points
-                        </Text>
-
-                        <View style={styles.statusPoint}>
-                            <View style={styles.StatusDot}></View>
-
-                            <text style={styles.statusText}>
-                                Active
-                            </text>
-                        </View>
-
-                        <text style={styles.balanceValue}>
-                            $24,680.00
-                        </text>
-
-                        <view style={styles.balancebottomRow}>
-                            </view>
-                                <text style={styles.cardCaption}>
-                                    This month you have earned
-                                </text>
-
-                                <text style={styles.cardChange}>
-                                    +$12.80 increase from last month
-                                </text>
-                            <view style={styles.balanceValue}>
-                                <view>
-                                    <text style={style.cardCaption}>
-                                        This month you have earned
-                                    </text>
-
-                                    <text style={stlyes.cardChange}>
-                                        12.8% increase from last month
-                                    </text>
-                                </view>
-                            </view>
-
-                            {/*OVERVIEW */}
-                            <view style={syles.sectionHeader}>
-                                <text style={styles.sectionTItle}>
-                                    
-                                </text>
-                            </view>
-                            
-                                
-                </View>
-            </View>
-        </ScrollView>
-      </SafeAreaView>
-    );
- }
+            
+          </View>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
