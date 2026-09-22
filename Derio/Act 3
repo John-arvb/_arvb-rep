@@ -169,10 +169,27 @@ export default function App() {
               ))} 
             </View>
 
-            
+            {/* SMART SPENDING TIPS */} 
+            <View style={styles.tipCard}>
+                <View style={styles.tipIcon}>
+                    <Text styles={styles.tipIconText}>💡
+                   </Text>
+                </View>
+
+                <View styles={styles.tipContent}>
+                    <Text styles={styles.tipTitle}>Smart Spending Tip
+                </Text>
+                
+                <Text styles={styles.tipText}>
+                    Set a budget for your monthly expenses and track your spending to avoid overspending.
+                </Text>
+                </View>
+            </View> 
           </View>
         </View>
       </ScrollView>
+
+      
     </SafeAreaView>
   );
 }
