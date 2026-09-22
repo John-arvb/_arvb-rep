@@ -91,6 +91,25 @@ import { SafeAreaView,
                                 <text style={styles.cardChange}>
                                     +$12.80 increase from last month
                                 </text>
+                            <view style={styles.balanceValue}>
+                                <view>
+                                    <text style={style.cardCaption}>
+                                        This month you have earned
+                                    </text>
+
+                                    <text style={stlyes.cardChange}>
+                                        12.8% increase from last month
+                                    </text>
+                                </view>
+                            </view>
+
+                            {/*OVERVIEW */}
+                            <view style={syles.sectionHeader}>
+                                <text style={styles.sectionTItle}>
+                                    
+                                </text>
+                            </view>
+                            
                                 
                 </View>
             </View>
