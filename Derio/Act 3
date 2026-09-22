@@ -188,8 +188,28 @@ export default function App() {
           </View>
         </View>
       </ScrollView>
+            
+        {/* BOTTOM NAVIGATION */}
+        <View style = {styles.bottomNav}>
+            {[
+                {icon: "🏠", label: 'Home', active: true},
+                {icon: "📊", label: 'Activity'},
+                {icon: "💳", label: 'Cards'},
+                {icon: "⚙️", label: 'Settings'},
+            ].map((item) => (
+                <Pressable style={styles.navItem}
+                key={item.label}>
+                <Text styles={[styles.navIcon, item.active && styles.activeNaveIcon,]}>
+                    {item.icon}
+                </Text>
 
-      
+                <Text styles={[styles.navLabel, item.active && styles.activeNavLabel,]}>
+                    {item.label}
+                </Text>
+                </Pressable>
+            ))}
+        </View>
     </SafeAreaView>
   );
 }
+
