@@ -11,15 +11,29 @@ import {
 
 const stats = [
   {
-    label: "Total Points",
-    value: "$24,680.00",
-    change: "+$12.80",
+    name: "Upper Body",
+    category: "Chest, Back",
+    exercises: "9 exercises",
+    duration: "2 hours",
+    icon: "🏋️‍♂️",
   },
+
   {
-    label: "Monthly Income",
-    value: "$2,056.00",
-    change: "+$120.00",
+    name: "Full arms",
+    category: "Shoulder, Biceps, Triceps, Forearms",
+    exercises: "9 exercises",
+    duration: "3 hours and a half",
+    icon: "💪",
   },
+
+  {
+    name: "Leg Day!",
+    category: "Quads, Hamstrings, Calves",
+    exercises: "6 exercises",
+    duration: "2 hours",
+    icon: "🦵",
+  },
+
 ];
 
 const activities = [
