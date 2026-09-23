@@ -33,277 +33,309 @@ const stats = [
     duration: "2 hours",
     icon: "🦵",
   },
-
 ];
-
 const activities = [
   {
-    title: "Salary Deposit",
-    category: "$Income",
-    change: "+$1,000.00",
-    icon: "💰",
-    color: "#D9FBE8",
+    title: "Upper Body Workout",
+    subtitle: "Chest • Shoulders • Arms",
+    value: "48 min",
+    icon: "💪",
   },
   {
-    title: "Withdrawal",
-    category: "$Expense",
-    change: "-$500.00",
-    icon: "💳",
-    color: "#FFE5E5",
+    title: "Morning Run",
+    subtitle: "Cardio • 5.2 km",
+    value: "32 min",
+    icon: "🏃",
+  },
+  {
+    title: "Leg Day",
+    subtitle: "Quads • Hamstrings • Calves",
+    value: "52 min",
+    icon: "🦵",
+  },
+];
+
+
+const workouts = [
+  {
+    name: "Upper Body",
+    exercises: "9 exercises",
+    duration: "2 hours",
+    icon: "🏋️‍♂️",
+  },
+  {
+    name: "Full Arms",
+    exercises: "9 exercises",
+    duration: "3 hours 30 min",
+    icon: "💪",
+  },
+  {
+    name: "Leg Day",
+    exercises: "6 exercises",
+    duration: "2 hours",
+    icon: "🦵",
   },
 ];
 
 export default function App() {
   return (
     <SafeAreaView style={styles.safeArea}>
-      <StatusBar
-        barStyle="dark-content"
-        backgroundColor="#F7F8FC"
-      />
+      <StatusBar barStyle="light-content" backgroundColor="#171717" />
 
       <ScrollView
-        contentContainerStyle={styles.container}
         showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.container}
       >
         {/* HEADER */}
         <View style={styles.header}>
           <View>
-            <Text style={styles.dateText}>
-              MONDAY, SEPTEMBER 21
-            </Text>
+            <Text style={styles.dateText}>MONDAY, SEPTEMBER 21</Text>
 
-            <Text style={styles.eyebrow}>
-              Good Morning, Derio
-            </Text>
+            <Text style={styles.greetings}>Good Morning</Text>
+
+            <Text style={styles.name}>Gym Bros!</Text>
           </View>
 
-          <Pressable style={styles.button}>
-            <Text style={styles.buttonText}>
-              Add Transaction
-            </Text>
+          <Pressable style={styles.profileButton}>
+            <Text style={styles.profileText}>D </Text>
           </Pressable>
         </View>
 
-        {/* BALANCE STATS */}
-        <View style={styles.balanceStats}>
-          <View style={styles.balanceStatsRow}>
-            <Text style={styles.balanceLabel}>
-              Total Points
-            </Text>
+        {/* BROS CARD */}
+        <View style={styles.brosCard}>
+          <View style={styles.brosTop}>
+            <View>
+              <Text style={styles.brosLabel}>TODAYS WORKOUT</Text>
 
-            <View style={styles.statusPoint}>
-              <View style={styles.statusDot} />
+              <Text style={styles.brosTitle}>UPPER BODY</Text>
+            </View>
 
-              <Text style={styles.statusText}>
-                Active
-              </Text>
+            <Text style={styles.brosIcon}>💪</Text>
+          </View>
+
+          <Text style={styles.brosDescription}>
+            Build strength, improve endurance, and become your best self.
+          </Text>
+
+          <View style={styles.brosBottomRow}>
+            <View>
+              <Text style={styles.brosStatValue}>48</Text>
+              <Text style={styles.brosStatLabel}>MINUTES</Text>
+            </View>
+
+            <View>
+              <Text style={styles.brosStatValue}>6</Text>
+
+              <Text style={styles.brosStatLabel}>EXERCISES</Text>
+            </View>
+
+            <View>
+              <Text style={styles.brosStatValue}>420</Text>
+
+              <Text style={styles.brosStatValue}>KCAL</Text>
             </View>
           </View>
 
-          <Text style={styles.balanceValue}>
-            $24,680.00
-          </Text>
+          <Pressable style={styles.startsButton}>
+            <Text style={styles.startButtonText}>START WORKOUT</Text>
 
-          <View style={styles.balanceBottomRow}>
-            <Text style={styles.cardCaption}>
-              This month you have earned
-            </Text>
+            <Text style={styles.arrow}>→</Text>
+          </Pressable>
+        </View>
 
-            <Text style={styles.cardChange}>
-              +$12.80 increase from last month
-            </Text>
+        {/* PROGRESS */}
+        <View style={styles.sectionHeader}>
+          <Text style={styles.sectionTitle}>WEEKLY PROGRESS</Text>
+
+          <Text style={styles.sectionLink}>THIS WEEK</Text>
+        </View>
+        <View style={styles.progressCard}>
+          <View style={styles.progressTop}>
+            <View>
+              <Text style={styles.progressValue}>4 / 5</Text>
+
+              <Text style={styles.progressLabel}>WORKOUTS COMPLETED</Text>
+            </View>
+
+            <Text style={styles.progressPercent}>80%</Text>
+          </View>
+
+          <View style={styles.progressBar}>
+            <View style={styles.progressFill} />
+          </View>
+
+          <View style={styles.daysRow}>
+            <View style={styles.day}>
+              <Text style={styles.dayLetter}>M</Text>
+              <View style={styles.completedDot}>
+                <Text style={styles.check}>✓</Text>
+              </View>
+            </View>
+
+            <View style={styles.day}>
+              <Text style={styles.dayLetter}>T</Text>
+              <View style={styles.completedDot}>
+                <Text style={styles.check}>✓</Text>
+              </View>
+            </View>
+
+            <View style={styles.day}>
+              <Text style={styles.dayLetter}>W</Text>
+              <View style={styles.completedDot}>
+                <Text style={styles.check}>✓</Text>
+              </View>
+            </View>
+
+            <View style={styles.day}>
+              <Text style={styles.dayLetter}>T</Text>
+              <View style={styles.completedDot}>
+                <Text style={styles.check}>✓</Text>
+              </View>
+            </View>
+
+            <View style={styles.day}>
+              <Text style={styles.dayLetter}>F</Text>
+              <View style={styles.emptyDot} />
+            </View>
+
+            <View style={styles.day}>
+              <Text style={styles.dayLetter}>S</Text>
+              <View style={styles.emptyDot} />
+            </View>
+
+            <View style={styles.day}>
+              <Text style={styles.dayLetter}>S</Text>
+              <View style={styles.emptyDot} />
+            </View>
           </View>
         </View>
 
-        {/* OVERVIEW */}
+        {/* FITNESS STATS */}
         <View style={styles.sectionHeader}>
-          <Text style={styles.sectionTitle}>
-            Overview
-          </Text>
-
-          <Pressable>
-            <Text style={styles.linkText}>
-              View Support
-            </Text>
-          </Pressable>
+          <Text style={styles.sectionTitle}>FITNESS STATS</Text>
         </View>
 
         <View style={styles.statsRow}>
-          {stats.map((stat) => (
-            <View
-              style={styles.statsCard}
-              key={stat.label}
-            >
-              <Text style={styles.statsLabel}>
-                {stat.label}
-              </Text>
+          <View style={styles.statCard}>
+            <Text style={styles.statIcon}>🔥</Text>
 
-              <Text style={styles.statsValue}>
-                {stat.value}
-              </Text>
+            <Text style={styles.statValue}>2,840</Text>
 
-              <Text style={styles.statsChange}>
-                {stat.change} vs last month
+            <Text style={styles.statLabel}>CALORIES</Text>
+          </View>
+
+          <View style={styles.statCard}>
+            <Text style={styles.statIcon}>⏱️</Text>
+
+            <Text style={styles.statValue}>186</Text>
+
+            <Text style={styles.statLabel}>MINUTES</Text>
+          </View>
+
+          <View style={styles.statCard}>
+            <Text style={styles.statIcon}>🏋️</Text>
+
+            <Text style={styles.statValue}>24</Text>
+
+            <Text style={styles.statLabel}>WORKOUTS</Text>
+          </View>
+        </View>
+
+        {/* WORKOUT PROGRAMS */}
+        <View style={styles.sectionHeader}>
+          <Text style={styles.sectionTitle}>WORKOUT PROGRAMS</Text>
+
+          <Text style={styles.sectionLink}>SEE ALL</Text>
+        </View>
+
+        {workouts.map((workout) => (
+          <Pressable style={styles.workoutCard} key={workout.name}>
+            <View style={styles.workoutIcon}>
+              <Text style={styles.workoutEmoji}>{workout.icon}</Text>
+            </View>
+
+            <View style={styles.workoutInfo}>
+              <Text style={styles.workoutName}>{workout.name}</Text>
+
+              <Text style={styles.workoutDetails}>
+                {workout.exercises} • {workout.duration}
               </Text>
             </View>
-          ))}
-        </View>
 
-        {/* QUICK ACTIONS */}
-        <View style={styles.sectionHeader}>
-          <Text style={styles.sectionTitle}>
-            Quick Actions
-          </Text>
-        </View>
-
-        <View style={styles.actionsRow}>
-          {[
-            { icon: "💰", label: "Deposit" },
-            { icon: "💳", label: "Withdraw" },
-            { icon: "📄", label: "Statement" },
-            { icon: "⚙️", label: "Settings" },
-          ].map((action) => (
-            <Pressable
-              style={styles.actionCard}
-              key={action.label}
-            >
-              <View style={styles.actionIcon}>
-                <Text style={styles.actionIconText}>
-                  {action.icon}
-                </Text>
-              </View>
-
-              <Text style={styles.actionLabel}>
-                {action.label}
-              </Text>
-            </Pressable>
-          ))}
-        </View>
-
-        {/* RECENT ACTIVITIES */}
-        <View style={styles.sectionHeader}>
-          <Text style={styles.sectionTitle}>
-            Recent Activities
-          </Text>
-
-          <Pressable>
-            <Text style={styles.linkText}>
-              See All
-            </Text>
+            <Text style={styles.workoutArrow}>→</Text>
           </Pressable>
+        ))}
+
+        {/* RECENT ACTIVITY */}
+        <View style={styles.sectionHeader}>
+          <Text style={styles.sectionTitle}>RECENT ACTIVITY</Text>
+
+          <Text style={styles.sectionLink}>SEE ALL</Text>
         </View>
 
         <View style={styles.activityCard}>
           {activities.map((activity, index) => (
             <View
+              key={activity.title}
               style={[
                 styles.activityRow,
-                index !== activities.length - 1 &&
-                  styles.activityDivider,
+                index !== activities.length - 1 && styles.activityDivider,
               ]}
-              key={activity.title}
             >
-              <View
-                style={[
-                  styles.activityIcon,
-                  {
-                    backgroundColor: activity.color,
-                  },
-                ]}
-              >
-                <Text style={styles.activityIconText}>
-                  {activity.icon}
-                </Text>
+              <View style={styles.activityIcon}>
+                <Text style={styles.activityEmoji}>{activity.icon}</Text>
               </View>
 
-              <View style={styles.activityDetails}>
-                <Text style={styles.activityTitle}>
-                  {activity.title}
-                </Text>
+              <View style={styles.activityInfo}>
+                <Text style={styles.activityTitle}>{activity.title}</Text>
 
-                <Text style={styles.activityCategory}>
-                  {activity.category}
-                </Text>
+                <Text style={styles.activitySubtitle}>{activity.subtitle}</Text>
               </View>
 
-              <Text
-                style={[
-                  styles.activityChange,
-                  activity.change.startsWith("+") &&
-                    styles.activityChangePositive,
-                ]}
-              >
-                {activity.change}
-              </Text>
+              <Text style={styles.activityValue}>{activity.value}</Text>
             </View>
           ))}
         </View>
 
-        {/* SMART SPENDING TIP */}
-        <View style={styles.tipCard}>
-          <View style={styles.tipIcon}>
-            <Text style={styles.tipIconText}>
-              💡
-            </Text>
-          </View>
+        {/* MOTIVATION */}
+        <View style={styles.motivationCard}>
+          <Text style={styles.motivationSlash}>//</Text>
 
-          <View style={styles.tipContent}>
-            <Text style={styles.tipTitle}>
-              Smart Spending Tip
-            </Text>
+          <Text style={styles.motivationTitle}>TRAIN HARD.</Text>
 
-            <Text style={styles.tipText}>
-              Set a budget for your monthly expenses and
-              track your spending to avoid overspending.
-            </Text>
-          </View>
+          <Text style={styles.motivationTitle}>BE BETTER.</Text>
+
+          <Text style={styles.motivationText}>
+            Consistency creates results.
+          </Text>
         </View>
       </ScrollView>
 
       {/* BOTTOM NAVIGATION */}
       <View style={styles.bottomNav}>
-        {[
-          {
-            icon: "🏠",
-            label: "Home",
-            active: true,
-          },
-          {
-            icon: "📊",
-            label: "Activity",
-          },
-          {
-            icon: "💳",
-            label: "Cards",
-          },
-          {
-            icon: "⚙️",
-            label: "Settings",
-          },
-        ].map((item) => (
-          <Pressable
-            style={styles.navItem}
-            key={item.label}
-          >
-            <Text
-              style={[
-                styles.navIcon,
-                item.active && styles.activeNavIcon,
-              ]}
-            >
-              {item.icon}
-            </Text>
+        <Pressable style={styles.navItem}>
+          <Text style={styles.activeNavIcon}>🏠</Text>
 
-            <Text
-              style={[
-                styles.navLabel,
-                item.active && styles.activeNavLabel,
-              ]}
-            >
-              {item.label}
-            </Text>
-          </Pressable>
-        ))}
+          <Text style={styles.activeNavLabel}>HOME</Text>
+        </Pressable>
+
+        <Pressable style={styles.navItem}>
+          <Text style={styles.navIcon}>🏋️</Text>
+
+          <Text style={styles.navLabel}>WORKOUTS</Text>
+        </Pressable>
+
+        <Pressable style={styles.navItem}>
+          <Text style={styles.navIcon}>📊</Text>
+
+          <Text style={styles.navLabel}>PROGRESS</Text>
+        </Pressable>
+
+        <Pressable style={styles.navItem}>
+          <Text style={styles.navIcon}>👤</Text>
+
+          <Text style={styles.navLabel}>PROFILE</Text>
+        </Pressable>
       </View>
     </SafeAreaView>
   );
@@ -312,9 +344,8 @@ export default function App() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: "#F7F8FC",
+    backgroundColor: "#171717",
   },
-
   container: {
     padding: 20,
     paddingBottom: 110,
@@ -326,96 +357,109 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 20,
   },
-
   dateText: {
-    fontSize: 12,
-    fontWeight: "600",
-    color: "#8A8F98",
+    fontSize: 11,
+    fontWeight: "700",
+    color: "#9A9A9A",
+    letterSpacing: 1,
     marginBottom: 5,
   },
-
-  eyebrow: {
-    fontSize: 22,
-    fontWeight: "700",
-    color: "#1E2430",
-  },
-
-  button: {
-    backgroundColor: "#1E2430",
-    paddingHorizontal: 14,
-    paddingVertical: 10,
-    borderRadius: 10,
-  },
-
-  buttonText: {
+  greetings: {
+    fontSize: 26,
+    fontWeight: "800",
     color: "#FFFFFF",
-    fontSize: 12,
-    fontWeight: "600",
+  },
+  name: {
+    fontSize: 26,
+    fontWeight: "800",
+    color: "#E53935",
+  },
+  profileButton: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: "#E53935",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  profileText: {
+    color: "#FFFFFF",
+    fontSize: 16,
+    fontWeight: "800",
   },
 
-  balanceStats: {
-    backgroundColor: "#FFFFFF",
-    borderRadius: 18,
+  brosCard: {
+    backgroundColor: "#E53935",
+    borderRadius: 22,
     padding: 20,
-    marginBottom: 24,
+    marginBottom: 26,
   },
-
-  balanceStatsRow: {
+  brosTop: {
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center",
+    alignItems: "flex-start",
   },
-
-  balanceLabel: {
-    fontSize: 14,
-    color: "#737984",
-    fontWeight: "600",
+  brosLabel: {
+    fontSize: 11,
+    fontWeight: "800",
+    color: "#FFD9D8",
+    letterSpacing: 1,
   },
-
-  statusPoint: {
+  brosTitle: {
+    fontSize: 28,
+    fontWeight: "900",
+    color: "#FFFFFF",
+    marginTop: 5,
+  },
+  brosIcon: {
+    fontSize: 40,
+  },
+  brosDescription: {
+    color: "#FFECEC",
+    fontSize: 13,
+    lineHeight: 19,
+    marginTop: 14,
+    maxWidth: "92%",
+  },
+  brosBottomRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 20,
+    paddingTop: 16,
+    borderTopWidth: 1,
+    borderTopColor: "#EF6663",
+  },
+  brosStatValue: {
+    color: "#FFFFFF",
+    fontSize: 20,
+    fontWeight: "900",
+  },
+  brosStatLabel: {
+    color: "#FFD9D8",
+    fontSize: 9,
+    fontWeight: "700",
+    marginTop: 2,
+  },
+  startsButton: {
+    backgroundColor: "#171717",
+    borderRadius: 12,
+    paddingVertical: 13,
+    paddingHorizontal: 16,
+    marginTop: 20,
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#EAFBF1",
-    paddingHorizontal: 9,
-    paddingVertical: 5,
-    borderRadius: 20,
+    justifyContent: "center",
   },
-
-  statusDot: {
-    width: 7,
-    height: 7,
-    borderRadius: 7,
-    backgroundColor: "#27AE60",
-    marginRight: 5,
-  },
-
-  statusText: {
-    fontSize: 11,
-    color: "#27AE60",
-    fontWeight: "600",
-  },
-
-  balanceValue: {
-    fontSize: 32,
+  startButtonText: {
+    color: "#FFFFFF",
+    fontSize: 12,
     fontWeight: "800",
-    color: "#1E2430",
-    marginTop: 12,
+    letterSpacing: 0.5,
   },
-
-  balanceBottomRow: {
-    marginTop: 12,
-  },
-
-  cardCaption: {
-    fontSize: 12,
-    color: "#8A8F98",
-  },
-
-  cardChange: {
-    fontSize: 12,
-    color: "#27AE60",
-    fontWeight: "600",
-    marginTop: 4,
+  arrow: {
+    color: "#FFFFFF",
+    fontSize: 18,
+    marginLeft: 8,
   },
 
   sectionHeader: {
@@ -424,178 +468,226 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 12,
   },
-
   sectionTitle: {
-    fontSize: 18,
-    fontWeight: "700",
-    color: "#1E2430",
+    fontSize: 16,
+    fontWeight: "900",
+    color: "#FFFFFF",
+    letterSpacing: 0.5,
+  },
+  sectionLink: {
+    fontSize: 10,
+    color: "#E53935",
+    fontWeight: "800",
   },
 
-  linkText: {
-    fontSize: 12,
-    color: "#5B63D3",
-    fontWeight: "600",
+  progressCard: {
+    backgroundColor: "#242424",
+    borderRadius: 18,
+    padding: 18,
+    marginBottom: 26,
+  },
+  progressTop: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  progressValue: {
+    color: "#FFFFFF",
+    fontSize: 24,
+    fontWeight: "900",
+  },
+  progressLabel: {
+    color: "#929292",
+    fontSize: 9,
+    fontWeight: "700",
+    marginTop: 3,
+  },
+  progressPercent: {
+    color: "#E53935",
+    fontSize: 20,
+    fontWeight: "900",
+  },
+  progressBar: {
+    height: 7,
+    backgroundColor: "#3A3A3A",
+    borderRadius: 5,
+    marginTop: 16,
+    overflow: "hidden",
+  },
+  progressFill: {
+    width: "80%",
+    height: "100%",
+    backgroundColor: "#E53935",
+    borderRadius: 5,
+  },
+  daysRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 18,
+  },
+  day: {
+    alignItems: "center",
+  },
+  dayLetter: {
+    color: "#929292",
+    fontSize: 10,
+    fontWeight: "700",
+    marginBottom: 7,
+  },
+  completedDot: {
+    width: 25,
+    height: 25,
+    borderRadius: 13,
+    backgroundColor: "#E53935",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  emptyDot: {
+    width: 25,
+    height: 25,
+    borderRadius: 13,
+    backgroundColor: "#343434",
+  },
+  check: {
+    color: "#FFFFFF",
+    fontSize: 13,
+    fontWeight: "900",
   },
 
   statsRow: {
     flexDirection: "row",
-    gap: 12,
-    marginBottom: 24,
+    gap: 10,
+    marginBottom: 26,
   },
-
-  statsCard: {
+  statCard: {
     flex: 1,
-    backgroundColor: "#FFFFFF",
-    borderRadius: 14,
-    padding: 15,
+    backgroundColor: "#242424",
+    borderRadius: 15,
+    padding: 14,
   },
-
-  statsLabel: {
-    fontSize: 12,
-    color: "#8A8F98",
-    marginBottom: 7,
+  statIcon: {
+    fontSize: 19,
+    marginBottom: 10,
   },
-
-  statsValue: {
+  statValue: {
+    color: "#FFFFFF",
     fontSize: 18,
+    fontWeight: "900",
+  },
+  statLabel: {
+    color: "#929292",
+    fontSize: 8,
     fontWeight: "700",
-    color: "#1E2430",
+    marginTop: 4,
   },
 
-  statsChange: {
-    fontSize: 10,
-    color: "#27AE60",
-    marginTop: 6,
-  },
-
-  actionsRow: {
+  workoutCard: {
+    backgroundColor: "#242424",
+    borderRadius: 16,
+    padding: 14,
+    marginBottom: 10,
     flexDirection: "row",
-    justifyContent: "space-between",
-    marginBottom: 24,
-  },
-
-  actionCard: {
-    width: "23%",
-    backgroundColor: "#FFFFFF",
-    borderRadius: 14,
-    padding: 10,
     alignItems: "center",
   },
-
-  actionIcon: {
-    width: 42,
-    height: 42,
-    borderRadius: 12,
-    backgroundColor: "#F0F1FF",
+  workoutIcon: {
+    width: 48,
+    height: 48,
+    borderRadius: 14,
+    backgroundColor: "#333333",
     alignItems: "center",
     justifyContent: "center",
   },
-
-  actionIconText: {
-    fontSize: 20,
+  workoutEmoji: {
+    fontSize: 23,
   },
-
-  actionLabel: {
+  workoutInfo: {
+    flex: 1,
+    marginLeft: 12,
+  },
+  workoutName: {
+    color: "#FFFFFF",
+    fontSize: 14,
+    fontWeight: "800",
+  },
+  workoutDetails: {
+    color: "#929292",
     fontSize: 10,
-    color: "#5E636D",
-    marginTop: 7,
-    textAlign: "center",
+    marginTop: 4,
+  },
+  workoutArrow: {
+    color: "#E53935",
+    fontSize: 22,
+    fontWeight: "700",
   },
 
   activityCard: {
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#242424",
     borderRadius: 16,
     paddingHorizontal: 15,
     marginBottom: 20,
   },
-
   activityRow: {
     flexDirection: "row",
     alignItems: "center",
     paddingVertical: 15,
   },
-
   activityDivider: {
     borderBottomWidth: 1,
-    borderBottomColor: "#F0F1F4",
+    borderBottomColor: "#363636",
   },
-
   activityIcon: {
     width: 42,
     height: 42,
     borderRadius: 12,
+    backgroundColor: "#333333",
     alignItems: "center",
     justifyContent: "center",
   },
-
-  activityIconText: {
+  activityEmoji: {
     fontSize: 19,
   },
-
-  activityDetails: {
+  activityInfo: {
     flex: 1,
     marginLeft: 12,
   },
-
   activityTitle: {
-    fontSize: 14,
-    fontWeight: "600",
-    color: "#1E2430",
-  },
-
-  activityCategory: {
-    fontSize: 11,
-    color: "#8A8F98",
-    marginTop: 3,
-  },
-
-  activityChange: {
     fontSize: 13,
     fontWeight: "700",
-    color: "#E74C3C",
+    color: "#FFFFFF",
+  },
+  activitySubtitle: {
+    fontSize: 10,
+    color: "#929292",
+    marginTop: 3,
+  },
+  activityValue: {
+    fontSize: 11,
+    fontWeight: "800",
+    color: "#E53935",
   },
 
-  activityChangePositive: {
-    color: "#27AE60",
-  },
-
-  tipCard: {
-    flexDirection: "row",
-    backgroundColor: "#FFF8E6",
-    borderRadius: 16,
-    padding: 16,
+  motivationCard: {
+    backgroundColor: "#E53935",
+    borderRadius: 18,
+    padding: 20,
     marginBottom: 20,
   },
-
-  tipIcon: {
-    width: 40,
-    height: 40,
-    borderRadius: 12,
-    backgroundColor: "#FFFFFF",
-    alignItems: "center",
-    justifyContent: "center",
+  motivationSlash: {
+    color: "#FFD9D8",
+    fontSize: 18,
+    fontWeight: "900",
+    marginBottom: 8,
   },
-
-  tipIconText: {
-    fontSize: 20,
+  motivationTitle: {
+    color: "#FFFFFF",
+    fontSize: 24,
+    fontWeight: "900",
+    lineHeight: 27,
   },
-
-  tipContent: {
-    flex: 1,
-    marginLeft: 12,
-  },
-
-  tipTitle: {
-    fontSize: 14,
-    fontWeight: "700",
-    color: "#1E2430",
-    marginBottom: 5,
-  },
-
-  tipText: {
+  motivationText: {
+    color: "#FFECEC",
     fontSize: 11,
-    lineHeight: 17,
-    color: "#6F6A5C",
+    marginTop: 8,
   },
 
   bottomNav: {
@@ -604,36 +696,33 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     height: 75,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#202020",
     borderTopWidth: 1,
-    borderTopColor: "#ECEEF2",
+    borderTopColor: "#343434",
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
   },
-
   navItem: {
     alignItems: "center",
     justifyContent: "center",
   },
-
   navIcon: {
     fontSize: 20,
-    opacity: 0.5,
+    opacity: 0.45,
   },
-
   activeNavIcon: {
+    fontSize: 20,
     opacity: 1,
   },
-
   navLabel: {
-    fontSize: 10,
-    color: "#8A8F98",
+    fontSize: 9,
+    color: "#858585",
     marginTop: 4,
-  },
-
-  activeNavLabel: {
-    color: "#5B63D3",
     fontWeight: "700",
+  },
+  activeNavLabel: {
+    color: "#E53935",
+    fontWeight: "800",
   },
 });
