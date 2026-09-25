@@ -1,8 +1,21 @@
 import React, { useState } from "react";
 import {
-  SafeAreaView, View, Text, TextInput, TouchableOpacity, FlatList,
-  StyleSheet, ScrollView, Pressable, StatusBar
+  SafeAreaView,
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  FlatList,
+  StyleSheet,
+  ScrollView,
+  Pressable,
+  StatusBar,
 } from "react-native";
+
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+const Stack = createNativeStackNavigator();
 
 const activities = [
   ["💪", "Upper Body Workout", "Chest • Shoulders • Arms", "48 min"],
@@ -16,20 +29,50 @@ const defaultWorkouts = [
   ["🦵", "Leg Day", "6 exercises • 2 hours"],
 ];
 
-export default function App() {
+function HomeScreen({ navigation }) {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>WORKOUT PROGRAMS</Text>
 
-  const deleteWorkout = (index: number) => {
-  setWorkouts(workouts.filter((_, i) => i !== index));
-};
+      <TouchableOpacity
+        style={styles.card}
+        onPress={() =>
+          navigation.navigation("Details", {
+            name: "Chest, Back",
+            duration: "2 hours",
+            description: "A Workout focus on two factor muscles",
+          })
+        }
+      >
+        <Text style={styles.cardTitle}>Chest & Back</Text>
+        <Text> 2 hours</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.card}
+        onPress={() =>
+          navigation.navigation("Details", {
+            name: "Leg Day",
+            durationn: "1 hour",
+            description:
+              "Workout focuses on lower body and to avoid chicken legs",
+          })
+        }
+      ></TouchableOpacity>
+    </View>
+  );
+}
+
+export default function App() {
+  const deleteWorkout = (index) => {
+    setWorkouts(workouts.filter((_, i) => i !== index));
+  };
   const [workoutName, setWorkoutName] = useState("");
   const [workouts, setWorkouts] = useState(defaultWorkouts);
 
   const addWorkout = () => {
     if (!workoutName.trim()) return;
-    setWorkouts([
-      ...workouts,
-      ["🏋️", workoutName, "New workout"]
-    ]);
+    setWorkouts([...workouts, ["🏋️", workoutName, "New workout"]]);
     setWorkoutName("");
   };
 
@@ -82,7 +125,7 @@ export default function App() {
           <View style={styles.progress}>
             <View style={styles.fill} />
           </View>
-          <Text style={styles.days}>M ✓　T  ✓　W  ✓　T  ✓　F  ○　S ○　S ○</Text>
+          <Text style={styles.days}>M ✓　T ✓　W ✓　T ✓　F ○　S ○　S ○</Text>
         </View>
 
         {/* FITNESS STATS */}
@@ -92,7 +135,7 @@ export default function App() {
             ["🔥", "2,840", "CALORIES"],
             ["⏱️", "186", "MINUTES"],
             ["🏋️", "24", "WORKOUTS"],
-          ].map(x => (
+          ].map((x) => (
             <View style={styles.stat} key={x[2]}>
               <Text>{x[0]}</Text>
               <Text style={styles.bigWhite}>{x[1]}</Text>
@@ -116,18 +159,22 @@ export default function App() {
           <Text style={styles.white}>Add Workout</Text>
         </TouchableOpacity>
 
-        <FlatList data ={workouts} keyExtractor={(item, index) => index.toString()}
-          renderItem={({item, index}) =>( <View style={styles.workoutItem}>
-            <Text style= {styles.workout}>{item}</Text>
+        <FlatList
+          data={workouts}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({ item, index }) => (
+            <View style={styles.workoutItem}>
+              <Text style={styles.workout}>{item}</Text>
 
-            <TouchableOpacity style= {styles.deleteButton} 
-            onPress={() => deleteWorkout( index )}>
-
-               <Text style={styles.deleteText}>Delete</Text>
-            </TouchableOpacity>
-          </View>
-          )}  
-          />
+              <TouchableOpacity
+                style={styles.deleteButton}
+                onPress={() => deleteWorkout(index)}
+              >
+                <Text style={styles.deleteText}>Delete</Text>
+              </TouchableOpacity>
+            </View>
+          )}
+        />
 
         {workouts.map((w, i) => (
           <Pressable style={styles.workout} key={i}>
@@ -173,7 +220,7 @@ export default function App() {
                 {x}
               </Text>
             </Pressable>
-          )
+          ),
         )}
       </View>
     </SafeAreaView>
@@ -186,7 +233,7 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginBottom: 20
+    marginBottom: 20,
   },
   small: { color: "#aaa", fontSize: 10, fontWeight: "bold" },
 
@@ -194,28 +241,38 @@ const styles = StyleSheet.create({
 
   redTitle: { color: "#E53935", fontSize: 26, fontWeight: "bold" },
 
-  workoutItem: { color: "#fff", fontSize: 15, fontWeight: "bold", padding: 12,
-  marginBottom: 8, borderRadius: 8, backgroundColor: "#d6d1d1", flexDirection: 'row',
-  justifyContent: 'space-between',  alignItems: 'center'},
+  workoutItem: {
+    color: "#fff",
+    fontSize: 15,
+    fontWeight: "bold",
+    padding: 12,
+    marginBottom: 8,
+    borderRadius: 8,
+    backgroundColor: "#d6d1d1",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
 
-  workoutText: { fontSize: 15, fontWeight: 'bold'},
+  workoutText: { fontSize: 15, fontWeight: "bold" },
 
-  deleteButton: { padding: 8, borderRadius: 6, backgroundColor: 'red',},
-  
-  deleteText: {color: 'white', fontWeight: 'bold'},
+  deleteButton: { padding: 8, borderRadius: 6, backgroundColor: "red" },
 
-
+  deleteText: { color: "white", fontWeight: "bold" },
 
   profile: {
-    width: 44, height: 44, borderRadius: 22,
+    width: 44,
+    height: 44,
+    borderRadius: 22,
     backgroundColor: "#E53935",
-    alignItems: "center", justifyContent: "center"
+    alignItems: "center",
+    justifyContent: "center",
   },
   redCard: {
     backgroundColor: "#E53935",
     borderRadius: 20,
     padding: 20,
-    marginBottom: 25
+    marginBottom: 25,
   },
   big: { color: "#fff", fontSize: 25, fontWeight: "bold", marginVertical: 5 },
   bigWhite: { color: "#fff", fontSize: 20, fontWeight: "bold" },
@@ -225,40 +282,40 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center"
+    alignItems: "center",
   },
   start: {
     backgroundColor: "#171717",
     padding: 13,
     borderRadius: 10,
     alignItems: "center",
-    marginTop: 15
+    marginTop: 15,
   },
   section: {
     color: "#fff",
     fontSize: 16,
     fontWeight: "bold",
     marginBottom: 12,
-    marginTop: 5
+    marginTop: 5,
   },
   card: {
     backgroundColor: "#242424",
     borderRadius: 16,
     padding: 16,
-    marginBottom: 25
+    marginBottom: 25,
   },
   red: { color: "#E53935", fontWeight: "bold" },
   progress: {
     height: 7,
     backgroundColor: "#3a3a3a",
     borderRadius: 5,
-    marginVertical: 15
+    marginVertical: 15,
   },
   fill: {
     width: "80%",
     height: "100%",
     backgroundColor: "#E53935",
-    borderRadius: 5
+    borderRadius: 5,
   },
   days: { color: "#aaa", fontSize: 11 },
   stat: {
@@ -266,7 +323,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#242424",
     padding: 14,
     borderRadius: 14,
-    marginHorizontal: 3
+    marginHorizontal: 3,
   },
   input: {
     backgroundColor: "#f3eeee",
@@ -274,14 +331,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 10,
     padding: 12,
-    marginBottom: 10
+    marginBottom: 10,
   },
   add: {
     backgroundColor: "#cf1b1b",
     padding: 12,
     borderRadius: 10,
     alignItems: "center",
-    marginBottom: 15
+    marginBottom: 15,
   },
   workout: {
     backgroundColor: "#fda0a0",
@@ -290,14 +347,14 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     flexDirection: "row",
     alignItems: "center",
-    gap: 12
+    gap: 12,
   },
   emoji: { fontSize: 23 },
   activity: {
     flexDirection: "row",
     alignItems: "center",
     paddingVertical: 14,
-    gap: 12
+    gap: 12,
   },
   nav: {
     position: "absolute",
@@ -308,8 +365,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#202020",
     flexDirection: "row",
     justifyContent: "space-around",
-    alignItems: "center"
+    alignItems: "center",
   },
   navText: { color: "#858585", textAlign: "center", fontSize: 10 },
-  navActive: { color: "#E53935", textAlign: "center", fontSize: 10 }
+  navActive: { color: "#E53935", textAlign: "center", fontSize: 10 },
 });
