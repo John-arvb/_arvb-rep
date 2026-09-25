@@ -32,6 +32,21 @@ const defaultWorkouts = [
 function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
+      <Text style = {styles.title}>FITCORE</Text>
+      <Text style={styles.title}>Dashboard</Text>
+
+      <TouchableOpacity
+        style={styles.card}
+        onPress={() =>
+          navigation.navigation("Workouts")}>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+function WorkoutScreen({ navigation }) {
+  return (
+    <View style={styles.container}>
       <Text style={styles.title}>WORKOUT PROGRAMS</Text>
 
       <TouchableOpacity
@@ -61,7 +76,39 @@ function HomeScreen({ navigation }) {
       ></TouchableOpacity>
     </View>
   );
-}
+};
+
+function DetailsScreen ({ navigation, route }) {
+   const { name, duration, description } = route.params;
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>{name}</Text>
+      <Text style={styles.Info}> Duration: {duration}</Text>
+      <Text style={styles.description}>{description}</Text>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() =>
+          navigation.navigation("Back")}>
+
+        <Text style={styles.cardTitle}>Back to Workouts</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.card}
+        onPress={() =>
+          navigation.navigation("Details", {
+            name: "Leg Day",
+            durationn: "1 hour",
+            description:
+              "Workout focuses on lower body and to avoid chicken legs",
+          })
+        }
+      ></TouchableOpacity>
+    </View>
+  );
+};
+
 
 export default function App() {
   const deleteWorkout = (index) => {
@@ -75,6 +122,28 @@ export default function App() {
     setWorkouts([...workouts, ["🏋️", workoutName, "New workout"]]);
     setWorkoutName("");
   };
+
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name ="Home"
+          component= {HomeScreen}
+        />
+
+        <Stack.Screen
+          name= "Workouts"
+          component={WorkoutScreen}
+        />
+
+        <Stack.Screen
+        name = 'Details'
+        component={DetailsScreen}
+      />
+
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
 
   return (
     <SafeAreaView style={styles.safe}>
@@ -369,4 +438,47 @@ const styles = StyleSheet.create({
   },
   navText: { color: "#858585", textAlign: "center", fontSize: 10 },
   navActive: { color: "#E53935", textAlign: "center", fontSize: 10 },
+
+  container: {
+    flex: 1,
+    padding: 20,
+    justifyContent: 'center',
+  },
+
+  title: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    marginBottom: 10, 
+  },
+
+  button: {
+    backgroundColor: 'Black',
+    padding: 15,
+    borderRadius: 10,
+    alignItems: 'center',
+    marginTop: 20,
+  },
+
+  card: {
+    padding: 20,
+    borderRadius: 10,
+    backgroundColor: '#eeeeee',
+    marginBottom: 15,
+  },
+
+  cardTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 5,
+  },
+
+  info: {
+    fontSize: 18,
+    marginTop: 10,
+  },
+
+  description: {
+    fontSize: 16,
+    marginTop: 20,
+  },
 });
