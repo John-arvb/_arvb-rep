@@ -186,11 +186,11 @@ function HomeScreen({ navigation }) {
           <Text style={styles.white}>Add Workout</Text>
         </TouchableOpacity>
 
-        {/* WORKOUT LIST */}
+        {/* WORKOUT  LIST */}
         <FlatList
           data={workouts}
           scrollEnabled={false}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => (
             <View style={styles.workoutItem}>
               <Text style={styles.emoji}>{item.emoji}</Text>
