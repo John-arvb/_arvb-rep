@@ -2,10 +2,6 @@ import React from "react";
 import { View, Text } from "react-native";
 import styles from "../styles/styles";
 
-import React from "react";
-import { View, Text } from "react-native";
-import styles from "../styles/styles";
-
 export default function ActivityCard({ activity }) {
   return (
     <View style={styles.activity}>

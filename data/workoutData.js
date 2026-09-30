@@ -1,7 +1,22 @@
 export const activities = [
-  ["💪", "Upper Body Workout", "Chest • Shoulders • Arms", "48 min"],
-  ["🏃", "Morning Run", "Cardio • 5.2 km", "32 min"],
-  ["🦵", "Leg Day", "Quads • Hamstrings • Calves", "52 min"],
+  [
+    "💪",
+    "Upper Body Workout",
+    "Chest • Shoulders • Arms",
+    "48 min",
+  ],
+  [
+    "🏃",
+    "Morning Run",
+    "Cardio • 5.2 km",
+    "32 min",
+  ],
+  [
+    "🦵",
+    "Leg Day",
+    "Quads • Hamstrings • Calves",
+    "52 min",
+  ],
 ];
 
 export const defaultWorkouts = [
@@ -24,5 +39,3 @@ export const defaultWorkouts = [
     details: "6 exercises • 2 hours",
   },
 ];
-
-export default WorkoutDetails;

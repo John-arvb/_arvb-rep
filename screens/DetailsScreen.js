@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   SafeAreaView,
   View,
@@ -9,17 +10,25 @@ import {
 
 import styles from "../styles/styles";
 
-function DetailsScreen({ navigation, route }) {
+function WorkoutDetails({ navigation, route }) {
   const { name, duration, description } = route.params;
 
   return (
     <SafeAreaView style={styles.safe}>
-      <StatusBar barStyle="light-content" backgroundColor="#171717" />
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor="#171717"
+      />
 
       <View style={styles.detailsContainer}>
-        <Text style={styles.detailsEmoji}>🏋️</Text>
 
-        <Text style={styles.detailsTitle}>{name}</Text>
+        <Text style={styles.detailsEmoji}>
+          🏋️
+        </Text>
+
+        <Text style={styles.detailsTitle}>
+          {name}
+        </Text>
 
         <Text style={styles.detailsDuration}>
           Duration: {duration}
@@ -33,11 +42,14 @@ function DetailsScreen({ navigation, route }) {
           style={styles.backButton}
           onPress={() => navigation.goBack()}
         >
-          <Text style={styles.white}>← GO BACK</Text>
+          <Text style={styles.white}>
+            ← GO BACK
+          </Text>
         </TouchableOpacity>
+
       </View>
     </SafeAreaView>
   );
 }
 
-export default DetailsScreen;
+export default WorkoutDetails;

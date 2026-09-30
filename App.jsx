@@ -37,7 +37,7 @@ export default function App() {
 
         <Stack.Screen
           name="Details"
-          component={WorkoutScreen}
+          component={WorkoutDetails}
           options={{ title: "WORKOUT DETAILS" }}
         />
       </Stack.Navigator>

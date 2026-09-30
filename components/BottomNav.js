@@ -20,15 +20,13 @@ export default function BottomNav ({ navigation }) {
           </Text>
         </Pressable>
 
-        <Pressable 
-        onPress={() => navigation.navigate("")}> 
+        <Pressable> 
           <Text style={styles.navText}>
             📊{"\n"}PROGRESS
           </Text>
         </Pressable>
 
-        <Pressable 
-        onPress={() => navigation.navigate("")}>
+        <Pressable>
           <Text style={styles.navText}>
             👤{"\n"}PROFILE
           </Text>
