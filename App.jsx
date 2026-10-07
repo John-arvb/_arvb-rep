@@ -4,7 +4,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import HomeScreen from "./screens/HomeScreen";
 import WorkoutScreen from "./screens/WorkoutScreen";
-import WorkoutDetails from "./screens/WorkoutDetails";
+import WorkoutDetails from "./screens/WorkoutScreen";
+
 
 const Stack = createNativeStackNavigator();
 
